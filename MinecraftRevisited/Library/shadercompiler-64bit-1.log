@@ -1,7 +1,24 @@
 Base path: C:/Program Files (x86)/Unity/Editor/Data
+<<<<<<< Updated upstream
 Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-688
+=======
+<<<<<<< HEAD
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-6684
+=======
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-10176
+>>>>>>> MakeBlocks
+>>>>>>> Stashed changes
 Cmd: getPlatforms
 Unhandled exception: Readfile from pipe failed. GLE=The pipe has been ended.
 
 
 Quitting shader compiler process
+<<<<<<< Updated upstream
+=======
+
+<<<<<<< HEAD
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-5268
+=======
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-684
+>>>>>>> MakeBlocks
+>>>>>>> Stashed changes
