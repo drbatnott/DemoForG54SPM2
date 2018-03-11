@@ -6,7 +6,7 @@ public class TestSpawnBlock : MonoBehaviour {
 	public GameObject [] spawnObjects;
 	public int obNumber;
 	public GameObject hammer;
-	Transform t;
+	Animator anim;
 	Vector3 displacement;
 	bool spawning = false;
 	bool rotating = false;
@@ -15,11 +15,12 @@ public class TestSpawnBlock : MonoBehaviour {
 	public ArrayList currentTerrain = new ArrayList();
 	// Use this for initialization
 	void Start () {
-		t = hammer.GetComponent<Transform> ();
+		anim = hammer.GetComponent<Animator> ();
 		//startPos = t.position +displacement ;
-
+		anim.SetBool ("swing", false);
 		obNumber = 0;
 		count = 0;
+		spawning = false;
 	}
 	
 	// Update is called once per frame
@@ -35,29 +36,29 @@ public class TestSpawnBlock : MonoBehaviour {
 			latest = currentTerrain.Count;
 			latest++;
 			spawned.name = "Cube_" + latest.ToString ();
-			displacement = 2 * t.forward + new Vector3 (0f, -2f, 0f);
-			startPos = t.position + displacement;
+			displacement = 2 * hammer.GetComponent<Transform>().forward + new Vector3 (0f, -2f, 0f);
+			startPos = hammer.GetComponent<Transform>().position + displacement;
 			spawned.transform.position = startPos;
 			spawning = false;
 			currentTerrain.Add (spawned);
 
 		}
 		if (spawning && rotating) {
-			if(count < 10){
-				t.RotateAround (Vector3.zero,Vector3.left,10f);
+			if(count==0){
+				anim.SetBool("swing",true);
+			}
+			if(count < 100){
+
 				count++;
 			}
-			if(count == 10){
-
-			}
-
-			if(count < 20){
+			if(count == 100){
+				anim.SetBool("swing",false);
 				count++;
-				t.RotateAround (Vector3.zero,Vector3.left,-100f);
 			}
 
-			else{
+			if(count > 100){
 				rotating = false;
+				count = 0;
 			}
 		
 		}
